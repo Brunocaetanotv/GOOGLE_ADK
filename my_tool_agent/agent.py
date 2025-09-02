@@ -2,17 +2,12 @@ from datetime import datetime
 from google.adk.agents import Agent 
 
 def get_time():
-    """
-    Retorna a hora atual do sistema 
-    """
+    """Retorna a hora atual do sistema"""
     return datetime.now().strftime("%H:%M:%S")
 
 def get_weekday():
-    """
-    Retorna o dia da semana atual do sistema 
-    """
+    """Retorna o dia da semana atual do sistema"""
     return datetime.now().strftime("%A")
-
 
 root_agent = Agent(
     name="my_tool_agent",

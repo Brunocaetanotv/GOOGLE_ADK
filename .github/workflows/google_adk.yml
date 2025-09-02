@@ -35,4 +35,4 @@ jobs:
         shell: pwsh
         run: |
           .\venv\Scripts\Activate.ps1
-          python -m google.adk.cli run agent.py
+          python test_agent.py

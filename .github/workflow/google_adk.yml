@@ -1,0 +1,32 @@
+name: Test Google ADK Agent
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test-adk:
+    runs-on: windows-latest  # ou ubuntu-latest se preferir Linux
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.13"  # ajuste conforme sua versão
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          .\venv\Scripts\Activate.ps1
+          pip install --upgrade pip
+          pip install -r requirements.txt  # ou pip install google-adk se não tiver requirements
+
+      - name: Test ADK Agent
+        run: |
+          .\venv\Scripts\Activate.ps1
+          python -m google.adk.cli run agent.py  # substitua pelo comando que inicia seu agente
